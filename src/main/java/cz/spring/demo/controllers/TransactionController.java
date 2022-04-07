@@ -59,7 +59,7 @@ public class TransactionController {
             return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
         }
     }
-    @PutMapping("/transactions/update/{id}")
+    @PutMapping("/transactions/transaction/update/{id}")
     public ResponseEntity<Transaction> updateTransaction(@PathVariable("id") Long id, @RequestBody Transaction transaction) {
         Optional<Transaction> transactionData = transactionRepository.findById(id);
         if (transactionData.isPresent()) {
@@ -74,7 +74,7 @@ public class TransactionController {
         }
     }
 
-    @DeleteMapping("transactions/remove/{id}")
+    @DeleteMapping("transactions/transaction/remove/{id}")
     public ResponseEntity<HttpStatus> remove(@PathVariable Long id){
         try {
             transactionRepository.removeTransactionById(id);
